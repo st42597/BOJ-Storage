@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false); cin.tie(NULL);
+    int t; cin >> t;
+    while(t--){
+        int a, b; cin >> a >> b;
+        int dist = abs(a - b);
+        int top = 1;
+        while(top * (top + 1) / 2 <= dist - (top + 1) * (top + 2) / 2){
+            top++;
+        }
+        int last = dist - top * (top + 1) / 2 - (top - 1) * top / 2;
+        cout << top * 2 - 1 + last / top + ((last % top) ? 1 : 0) << "\n";
+    }
+
+    return 0;
+}
