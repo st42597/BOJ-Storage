@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> d;
+
+int main(){
+    ios::sync_with_stdio(false); cin.tie(NULL);
+    int n, a, b, c;
+    cin >> n >> a >> b >> c;
+    for(int i = 0; i < n; i++){
+        int tmp; cin >> tmp;
+        d.push_back(tmp);
+    }
+    sort(d.begin(), d.end(), greater<>());
+    for(int cal : d){
+        if((double)(c + cal) / (a + b) > (double)c / a){
+            c += cal; a += b;
+        }else break;
+    }
+    cout << c / a;
+    return 0;
+}
