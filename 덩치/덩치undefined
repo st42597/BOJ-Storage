@@ -1,0 +1,25 @@
+#include <stdio.h>
+struct data
+{
+    int x, y;
+} arr[53];
+int ans[53];
+int main()
+{
+    int n, i, j;
+    scanf("%d", &n);
+    for(i = 1; i <= n; i++)
+        scanf("%d %d", &arr[i].x, &arr[i].y);
+    for(i = 1; i <= n; i++)
+    {
+        for(j = i + 1; j <= n; j++)
+        {
+            if(arr[i].x > arr[j].x && arr[i].y > arr[j].y)
+                ans[j]++;
+            else if(arr[i].x < arr[j].x && arr[i].y < arr[j].y)
+                ans[i]++;
+        }
+        printf("%d ", ans[i] + 1);
+    }
+    return 0;
+}
